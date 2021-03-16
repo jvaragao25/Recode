@@ -10,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -38,6 +39,12 @@ public class Alocacao {
 	@Temporal(value=TemporalType.TIME)	//Indica o tipo da coluna mapeado ao tipo do atributo 
 	@Column(nullable=false)
 	private Date end;
+	
+	@ManyToOne
+	Professor professor;
+	
+	@ManyToOne
+	Curso curso;
 	
 
 }

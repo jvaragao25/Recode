@@ -6,6 +6,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -22,5 +23,8 @@ public class Curso {
 	
 	@Column(nullable=false)
 	private String nome;
+	
+	@OneToMany(mappedBy="curso")
+	private List<Alocacao> lista_alocacao;
 
 }

@@ -1,11 +1,17 @@
 package com.project.professor.alocation.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,5 +29,11 @@ public class Departamento {
 	
 	@Column(unique = true, nullable = false)		//Especifica o mapeamento atributo-coluna
 	private String name;
+	
+	@OnDelete(action=OnDeleteAction.CASCADE)
+	@OneToMany(mappedBy = "departamento")
+	private List<Professor> lista_professores;
+	
+
 
 }
