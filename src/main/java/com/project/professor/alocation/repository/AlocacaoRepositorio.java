@@ -13,7 +13,7 @@ import com.project.professor.alocation.entity.Professor;
 
 public interface AlocacaoRepositorio extends JpaRepository<Alocacao, Long>{
 	
-	List<Alocacao> findByProfessor (Long id);
-	List<Alocacao> findByCurso (Long id);
+	List<Alocacao> findByProfessor (Professor professor);
+	List<Alocacao> findByCurso (Curso curso);
 
 }
